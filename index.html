@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title id="doc-title">Toxic Store | Limpieza y Estética Automotriz</title>
+    <title id="doc-title">MONSDETAIL Shop | Estética Vehicular Profesional</title>
 
     <!-- FontAwesome Icons -->
     <link
@@ -12,7 +12,7 @@
     />
     <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <!-- Supabase JS Client v2 -->
@@ -20,15 +20,14 @@
 
     <style>
       :root {
-        --primary-gold: #d4af37;
-        --secondary-gold: #aa7c11;
-        --light-gold: #f3e5ab;
-        --dark-bg: #121212;
-        --card-bg: #1e1e1e;
+        --primary-lime: #a4d62c;
+        --secondary-lime: #82ad1f;
+        --dark-bg: #111314;
+        --card-bg: #1b1e20;
         --text-main: #f5f5f5;
-        --text-muted: #a0a0a0;
+        --text-muted: #9da3a8;
         --white: #ffffff;
-        --border-gold: rgba(212, 175, 55, 0.3);
+        --border-lime: rgba(164, 214, 44, 0.3);
       }
 
       * {
@@ -45,26 +44,76 @@
       }
 
       header {
-        background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-        border-bottom: 2px solid var(--primary-gold);
+        background: linear-gradient(135deg, #0d0e0f 0%, #1d2022 100%);
+        border-bottom: 3px solid var(--primary-lime);
         padding: 2rem 1rem;
         text-align: center;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       }
 
-      .brand-title {
-        font-family: 'Playfair Display', serif;
+      .brand-logo-text {
         font-size: 2.8rem;
-        color: var(--primary-gold);
+        font-weight: 900;
+        font-style: italic;
+        letter-spacing: 1px;
         text-transform: uppercase;
+        line-height: 1;
+        margin-bottom: 0.2rem;
+      }
+
+      .brand-logo-text .mons {
+        color: var(--text-muted);
+      }
+
+      .brand-logo-text .detail {
+        color: var(--primary-lime);
+      }
+
+      .brand-shop-sub {
+        font-size: 1.3rem;
+        font-weight: 600;
+        font-style: italic;
+        color: var(--white);
         letter-spacing: 2px;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.8rem;
+        display: inline-block;
+        border-top: 2px solid var(--primary-lime);
+        padding-top: 2px;
+      }
+
+      /* Estilo para la imagen del logo oficial */
+      .brand-logo-img {
+        max-width: 360px;
+        width: 90%;
+        height: auto;
+        object-fit: contain;
+        margin-bottom: 0.8rem;
+        border-radius: 8px;
+        display: none;
       }
 
       .brand-subtitle {
         color: var(--text-muted);
-        font-size: 1.1rem;
-        font-weight: 300;
+        font-size: 1.05rem;
+        font-weight: 400;
+        max-width: 700px;
+      }
+
+      .owner-badge {
+        margin-top: 0.8rem;
+        background: rgba(164, 214, 44, 0.12);
+        border: 1px solid var(--border-lime);
+        color: var(--primary-lime);
+        padding: 0.35rem 1.2rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
       }
 
       .admin-btn {
@@ -72,24 +121,71 @@
         top: 1rem;
         right: 1rem;
         background: transparent;
-        border: 1px solid var(--border-gold);
-        color: var(--primary-gold);
+        border: 1px solid var(--border-lime);
+        color: var(--primary-lime);
         padding: 0.5rem 1rem;
         border-radius: 20px;
         cursor: pointer;
         transition: all 0.3s ease;
         z-index: 10;
+        font-size: 0.85rem;
       }
 
       .admin-btn:hover {
-        background: var(--primary-gold);
-        color: #000;
+        background: var(--primary-lime);
+        color: #111314;
+        font-weight: 600;
+      }
+
+      .features-bar {
+        background: #17191b;
+        border-bottom: 1px solid rgba(164, 214, 44, 0.15);
+        padding: 1.2rem 1rem;
+      }
+
+      .features-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--white);
+      }
+
+      .feature-item i {
+        color: var(--primary-lime);
+        font-size: 1.3rem;
       }
 
       .container {
         max-width: 1200px;
         margin: 2rem auto;
         padding: 0 1rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .section-desc {
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
       }
 
       .controls {
@@ -106,11 +202,17 @@
 
       .search-bar input {
         width: 100%;
-        padding: 0.8rem 1rem 0.8rem 2.5rem;
+        padding: 0.85rem 1rem 0.85rem 2.6rem;
         background: var(--card-bg);
-        border: 1px solid var(--border-gold);
+        border: 1px solid var(--border-lime);
         border-radius: 8px;
         color: var(--text-main);
+        font-size: 0.95rem;
+      }
+
+      .search-bar input:focus {
+        outline: none;
+        border-color: var(--primary-lime);
       }
 
       .search-bar i {
@@ -118,12 +220,12 @@
         left: 1rem;
         top: 50%;
         transform: translateY(-50%);
-        color: var(--primary-gold);
+        color: var(--primary-lime);
       }
 
       .filter-tags {
         display: flex;
-        gap: 0.5rem;
+        gap: 0.6rem;
         overflow-x: auto;
         padding-bottom: 0.5rem;
         white-space: nowrap;
@@ -134,95 +236,194 @@
       }
 
       .filter-tags::-webkit-scrollbar-thumb {
-        background: var(--primary-gold);
+        background: var(--primary-lime);
         border-radius: 3px;
       }
 
       .tag-btn {
         background: var(--card-bg);
-        border: 1px solid var(--border-gold);
+        border: 1px solid var(--border-lime);
         color: var(--text-main);
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 1.1rem;
         border-radius: 20px;
         cursor: pointer;
         font-size: 0.85rem;
+        transition: all 0.2s ease;
+      }
+
+      .tag-btn:hover {
+        border-color: var(--primary-lime);
       }
 
       .tag-btn.active {
-        background: var(--primary-gold);
-        color: #000;
-        font-weight: 600;
+        background: var(--primary-lime);
+        color: #111314;
+        font-weight: 700;
       }
 
-      .products-grid {
+      .services-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 1.5rem;
       }
 
-      .product-card {
+      .service-card {
         background: var(--card-bg);
-        border: 1px solid var(--border-gold);
+        border: 1px solid var(--border-lime);
         border-radius: 12px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
-      .product-card:hover {
+      .service-card:hover {
         transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(164, 214, 44, 0.12);
       }
 
-      .product-img {
+      .carousel-container {
+        position: relative;
         width: 100%;
-        height: 220px;
-        object-fit: cover;
-        background: #222;
+        height: 210px;
+        background: #25292c;
+        overflow: hidden;
       }
 
-      .product-info {
-        padding: 1.2rem;
+      .carousel-track {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .carousel-slide {
+        min-width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.6);
+        color: var(--primary-lime);
+        border: 1px solid var(--border-lime);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 5;
+      }
+
+      .carousel-btn:hover {
+        background: var(--primary-lime);
+        color: #111314;
+      }
+
+      .carousel-prev { left: 8px; }
+      .carousel-next { right: 8px; }
+
+      .carousel-dots {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 5px;
+        z-index: 5;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+      }
+
+      .dot.active {
+        background: var(--primary-lime);
+        width: 18px;
+        border-radius: 4px;
+      }
+
+      .service-info {
+        padding: 1.4rem;
         display: flex;
         flex-direction: column;
         flex: 1;
       }
 
-      .product-title {
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
+      .service-category {
+        font-size: 0.75rem;
+        color: var(--primary-lime);
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .service-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
         color: var(--white);
       }
 
-      .product-desc {
+      .service-desc {
         color: var(--text-muted);
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
+        font-size: 0.92rem;
+        margin-bottom: 1.4rem;
         flex: 1;
       }
 
-      .product-price {
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: var(--primary-gold);
-        margin-bottom: 1rem;
-      }
-
-      .buy-btn {
+      .quote-btn {
         width: 100%;
-        background: #25d366;
-        color: white;
+        background: var(--primary-lime);
+        color: #111314;
         border: none;
-        padding: 0.8rem;
+        padding: 0.85rem;
         border-radius: 8px;
-        font-weight: 600;
+        font-weight: 700;
+        font-size: 0.95rem;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
+        transition: background 0.2s ease;
+      }
+
+      .quote-btn:hover {
+        background: var(--secondary-lime);
+        color: #fff;
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background-color: #25d366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        z-index: 999;
         text-decoration: none;
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1);
       }
 
       .modal {
@@ -232,7 +433,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(0, 0, 0, 0.88);
         justify-content: center;
         align-items: center;
         z-index: 1000;
@@ -245,7 +446,7 @@
 
       .modal-content {
         background: var(--card-bg);
-        border: 1px solid var(--primary-gold);
+        border: 1px solid var(--primary-lime);
         padding: 2rem;
         border-radius: 12px;
         max-width: 600px;
@@ -271,7 +472,9 @@
       .form-group label {
         display: block;
         margin-bottom: 0.4rem;
-        color: var(--primary-gold);
+        color: var(--primary-lime);
+        font-size: 0.9rem;
+        font-weight: 600;
       }
 
       .form-group input,
@@ -279,34 +482,34 @@
       .form-group select {
         width: 100%;
         padding: 0.8rem;
-        background: #121212;
-        border: 1px solid var(--border-gold);
+        background: #111314;
+        border: 1px solid var(--border-lime);
         color: white;
         border-radius: 6px;
       }
 
       .submit-btn {
         width: 100%;
-        background: var(--primary-gold);
-        color: black;
-        font-weight: bold;
-        padding: 0.8rem;
+        background: var(--primary-lime);
+        color: #111314;
+        font-weight: 700;
+        padding: 0.85rem;
         border: none;
         border-radius: 6px;
         cursor: pointer;
       }
 
-      .admin-prod-list {
+      .admin-list {
         margin-top: 1rem;
-        max-height: 250px;
+        max-height: 220px;
         overflow-y: auto;
-        border: 1px solid var(--border-gold);
+        border: 1px solid var(--border-lime);
         border-radius: 6px;
         padding: 0.5rem;
-        background: #121212;
+        background: #111314;
       }
 
-      .admin-prod-item {
+      .admin-item {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -314,19 +517,15 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       }
 
-      .admin-prod-item:last-child {
-        border-bottom: none;
-      }
-
-      .admin-prod-info {
+      .admin-item-info {
         display: flex;
         align-items: center;
         gap: 0.8rem;
       }
 
-      .admin-prod-img {
-        width: 40px;
-        height: 40px;
+      .admin-item-img {
+        width: 45px;
+        height: 45px;
         border-radius: 4px;
         object-fit: cover;
       }
@@ -337,13 +536,13 @@
       }
 
       .btn-edit-sm {
-        background: #d4af37;
-        color: #000;
+        background: var(--primary-lime);
+        color: #111314;
         border: none;
         padding: 0.4rem 0.7rem;
         border-radius: 4px;
         cursor: pointer;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 0.8rem;
       }
 
@@ -359,20 +558,44 @@
       }
 
       footer {
+        background: #0d0e0f;
         text-align: center;
-        padding: 2rem;
-        margin-top: 3rem;
-        border-top: 1px solid var(--border-gold);
+        padding: 2.5rem 1rem;
+        margin-top: 4rem;
+        border-top: 2px solid var(--primary-lime);
         color: var(--text-muted);
       }
 
+      .footer-contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 1.2rem;
+        font-size: 0.95rem;
+        color: var(--white);
+      }
+
+      .footer-contact-info span i {
+        color: var(--primary-lime);
+        margin-right: 0.4rem;
+      }
+
       footer button {
-        background: transparent;
-        border: none;
-        color: var(--primary-gold);
-        font-size: 1rem;
+        background: rgba(164, 214, 44, 0.1);
+        border: 1px solid var(--border-lime);
+        color: var(--primary-lime);
+        padding: 0.5rem 1.2rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
         cursor: pointer;
-        margin: 0 0.5rem;
+        margin: 0.3rem;
+      }
+
+      footer button:hover {
+        background: var(--primary-lime);
+        color: #111314;
       }
     </style>
   </head>
@@ -381,79 +604,81 @@
       <button class="admin-btn" id="btn-admin-modal">
         <i class="fa-solid fa-gear"></i> Panel Admin
       </button>
-      <h1 class="brand-title" id="store-title">Toxic Store</h1>
+
+      <!-- Imagen del Logo Oficial -->
+      <img src="" alt="MONSDETAIL Shop" class="brand-logo-img" id="store-logo-img" />
+
+      <!-- Logo tipográfico de respaldo si no hay imagen -->
+      <div id="brand-text-wrapper">
+        <h1 class="brand-logo-text">
+          <span class="mons">MONS</span><span class="detail">DETAIL</span>
+        </h1>
+        <div class="brand-shop-sub">Shop</div>
+      </div>
+
       <p class="brand-subtitle" id="store-subtitle">
-        Productos de Detailing y Limpieza Automotriz
+        Lavado Premium • Limpieza de Interior • Tratamientos Cerámicos • PPF • Ploteo Vehicular
       </p>
+      <div class="owner-badge" id="store-owner">
+        <i class="fa-solid fa-user-check"></i> Daniel Barcala
+      </div>
     </header>
 
+    <div class="features-bar">
+      <div class="features-container">
+        <div class="feature-item">
+          <i class="fa-solid fa-shield-halved"></i> Productos de Alta Gama
+        </div>
+        <div class="feature-item">
+          <i class="fa-solid fa-car-burst"></i> Protección y Cuidado Total
+        </div>
+        <div class="feature-item">
+          <i class="fa-solid fa-handshake"></i> Asesoramiento Personalizado
+        </div>
+      </div>
+    </div>
+
     <div class="container">
+      <div class="section-title">Nuestros Servicios</div>
+      <div class="section-desc">Seleccioná un servicio para consultar directamente por presupuesto y turnos disponibles.</div>
+
       <div class="controls">
         <div class="search-bar">
           <i class="fa-solid fa-magnifying-glass"></i>
           <input
             type="text"
             id="search-input"
-            placeholder="Buscar productos... (Presiona Enter para buscar)"
+            placeholder="Buscar servicios (ej. pulido, cerámico, polarizado)..."
           />
         </div>
-        <div class="filter-tags" id="category-filters">
-          <button class="tag-btn active" data-cat="Todos">Todos</button>
-          <button class="tag-btn" data-cat="CERAS LÍQUIDAS">
-            CERAS LÍQUIDAS
-          </button>
-          <button class="tag-btn" data-cat="LAVA AUTOS">LAVA AUTOS</button>
-          <button class="tag-btn" data-cat="LIMPIADORES">LIMPIADORES</button>
-          <button class="tag-btn" data-cat="REVIVIDOR DE INTERIORES">
-            REVIVIDOR DE INTERIORES
-          </button>
-          <button class="tag-btn" data-cat="REVITALIZADOR DE EXTERIORES">
-            REVITALIZADOR DE EXTERIORES
-          </button>
-          <button class="tag-btn" data-cat="LÍNEA PROFESIONAL">
-            LÍNEA PROFESIONAL
-          </button>
-          <button class="tag-btn" data-cat="ENVASES">ENVASES</button>
-          <button class="tag-btn" data-cat="AEROSOLES">AEROSOLES</button>
-          <button class="tag-btn" data-cat="250">250</button>
-          <button class="tag-btn" data-cat="Shine">Shine</button>
-          <button class="tag-btn" data-cat="MINIS">MINIS</button>
-          <button class="tag-btn" data-cat="PERFUMES">PERFUMES</button>
-          <button class="tag-btn" data-cat="AROMATIZANTES">
-            AROMATIZANTES
-          </button>
-          <button class="tag-btn" data-cat="SELLADORES LÍQUIDOS">
-            SELLADORES LÍQUIDOS
-          </button>
-          <button class="tag-btn" data-cat="SELLADORES CERÁMICOS">
-            SELLADORES CERÁMICOS
-          </button>
-          <button class="tag-btn" data-cat="TOXIC GALLON'S COMPANY">
-            TOXIC GALLON'S COMPANY
-          </button>
-          <button class="tag-btn" data-cat="MERCHANDISING">
-            MERCHANDISING
-          </button>
-        </div>
+        <div class="filter-tags" id="category-filters"></div>
       </div>
 
-      <div class="products-grid" id="products-container"></div>
+      <div class="services-grid" id="services-container"></div>
     </div>
 
+    <a href="#" id="float-whatsapp" class="whatsapp-float" target="_blank" title="Consultar por WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
     <footer>
-      <p>
-        &copy; <span id="year"></span>
-        <span id="footer-title">Toxic Store</span>. Todos los derechos
-        reservados.
-      </p>
-      <p style="margin-top: 0.5rem">
-        <button id="btn-open-ig">
-          <i class="fa-brands fa-instagram"></i> Instagram (@toxicstoreneuquen)
-        </button>
-        |
+      <div class="footer-contact-info">
+        <span><i class="fa-solid fa-location-dot"></i> <strong id="footer-address">José Rosa 637</strong></span>
+        <span><i class="fa-brands fa-whatsapp"></i> <strong id="footer-phone">+54 9 2993 25-6506</strong></span>
+        <span><i class="fa-brands fa-instagram"></i> <strong id="footer-ig-text">@mons_detail_shop</strong></span>
+      </div>
+
+      <div style="margin-bottom: 1.5rem">
         <button id="btn-open-ws">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          <i class="fa-brands fa-whatsapp"></i> Consultar Turno por WhatsApp
         </button>
+        <button id="btn-open-ig">
+          <i class="fa-brands fa-instagram"></i> Ver Trabajos en Instagram
+        </button>
+      </div>
+
+      <p style="font-size: 0.85rem">
+        &copy; <span id="year"></span> MONSDETAIL Shop - Daniel Barcala. Todos los derechos reservados.
       </p>
     </footer>
 
@@ -461,8 +686,8 @@
     <div class="modal" id="modal-admin">
       <div class="modal-content">
         <span class="close-btn" id="close-admin-modal">&times;</span>
-        <h2 style="color: var(--primary-gold); margin-bottom: 1rem">
-          Administración
+        <h2 style="color: var(--primary-lime); margin-bottom: 1rem">
+          Administración MONSDETAIL
         </h2>
 
         <div id="admin-login-sec">
@@ -475,24 +700,30 @@
                 placeholder="Escribir PIN y presionar Enter"
               />
             </div>
-            <button type="submit" class="submit-btn" id="btn-verify-pin">
-              Ingresar
-            </button>
+            <button type="submit" class="submit-btn">Ingresar</button>
           </form>
         </div>
 
         <div id="admin-panel-sec" style="display: none">
-          <h3>Ajustes de la Tienda</h3>
+          <h3>Datos y Logo del Taller</h3>
           <div class="form-group">
-            <label>Nombre de la Tienda:</label>
-            <input type="text" id="input-store-title" />
+            <label>Subir Imagen del Logo (Desde compu o celular):</label>
+            <input type="file" id="input-logo-file" accept="image/*" />
           </div>
           <div class="form-group">
-            <label>Subtítulo:</label>
+            <label>O URL Directa del Logo:</label>
+            <input type="text" id="input-store-logo" placeholder="https://..." />
+          </div>
+          <div class="form-group">
+            <label>Subtítulo / Especialidades:</label>
             <input type="text" id="input-store-subtitle" />
           </div>
           <div class="form-group">
-            <label>Número WhatsApp:</label>
+            <label>Dirección Física:</label>
+            <input type="text" id="input-store-address" />
+          </div>
+          <div class="form-group">
+            <label>Número WhatsApp (sin + ni espacios):</label>
             <input type="text" id="input-store-ws" />
           </div>
           <div class="form-group">
@@ -504,71 +735,63 @@
             style="margin-bottom: 1.5rem"
             id="btn-save-settings"
           >
-            Guardar Ajustes
+            Guardar Datos y Logo
           </button>
 
-          <hr style="border-color: var(--border-gold); margin: 1.5rem 0" />
+          <hr style="border-color: var(--border-lime); margin: 1.5rem 0" />
 
-          <h3 id="form-product-title">Agregar / Editar Producto</h3>
+          <h3>Categorías de Servicios</h3>
+          <div class="form-group" style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+            <input type="text" id="new-category-input" placeholder="Nueva categoría" />
+            <button type="button" class="submit-btn" style="width: auto; padding: 0 1rem;" onclick="addCategory()">Añadir</button>
+          </div>
+          <div id="category-list-admin" style="margin-bottom: 1.5rem; max-height: 120px; overflow-y: auto; background: #111314; border: 1px solid var(--border-lime); padding: 0.5rem; border-radius: 6px;"></div>
+
+          <hr style="border-color: var(--border-lime); margin: 1.5rem 0" />
+
+          <h3 id="form-service-title">Agregar / Editar Servicio (Subir hasta 5 Fotos)</h3>
           <form
-            id="form-product"
-            onsubmit="event.preventDefault(); saveProduct();"
+            id="form-service"
+            onsubmit="event.preventDefault(); saveService();"
           >
-            <input type="hidden" id="prod-id-edit" value="" />
+            <input type="hidden" id="srv-id-edit" value="" />
             <div class="form-group">
-              <label>Nombre del Producto:</label>
-              <input type="text" id="prod-name" required />
+              <label>Nombre del Servicio:</label>
+              <input type="text" id="srv-name" required />
             </div>
             <div class="form-group">
-              <label>Categoría Oficial:</label>
-              <select id="prod-category">
-                <option value="CERAS LÍQUIDAS">CERAS LÍQUIDAS</option>
-                <option value="LAVA AUTOS">LAVA AUTOS</option>
-                <option value="LIMPIADORES">LIMPIADORES</option>
-                <option value="REVIVIDOR DE INTERIORES">
-                  REVIVIDOR DE INTERIORES
-                </option>
-                <option value="REVITALIZADOR DE EXTERIORES">
-                  REVITALIZADOR DE EXTERIORES
-                </option>
-                <option value="LÍNEA PROFESIONAL">LÍNEA PROFESIONAL</option>
-                <option value="ENVASES">ENVASES</option>
-                <option value="AEROSOLES">AEROSOLES</option>
-                <option value="250">250</option>
-                <option value="Shine">Shine</option>
-                <option value="MINIS">MINIS</option>
-                <option value="PERFUMES">PERFUMES</option>
-                <option value="AROMATIZANTES">AROMATIZANTES</option>
-                <option value="SELLADORES LÍQUIDOS">SELLADORES LÍQUIDOS</option>
-                <option value="SELLADORES CERÁMICOS">
-                  SELLADORES CERÁMICOS
-                </option>
-                <option value="TOXIC GALLON'S COMPANY">
-                  TOXIC GALLON'S COMPANY
-                </option>
-                <option value="MERCHANDISING">MERCHANDISING</option>
-              </select>
+              <label>Categoría:</label>
+              <select id="srv-category"></select>
+            </div>
+            
+            <div class="form-group">
+              <label>Foto 1 (Principal):</label>
+              <input type="file" id="srv-file-1" accept="image/*" />
             </div>
             <div class="form-group">
-              <label>Precio ($):</label>
-              <input type="number" id="prod-price" required />
+              <label>Foto 2 (Opcional):</label>
+              <input type="file" id="srv-file-2" accept="image/*" />
             </div>
             <div class="form-group">
-              <label>URL Imagen:</label>
-              <input
-                type="text"
-                id="prod-img"
-                placeholder="https://ejemplo.com/imagen.jpg"
-                required
-              />
+              <label>Foto 3 (Opcional):</label>
+              <input type="file" id="srv-file-3" accept="image/*" />
             </div>
             <div class="form-group">
-              <label>Descripción:</label>
-              <textarea id="prod-desc" rows="2"></textarea>
+              <label>Foto 4 (Opcional):</label>
+              <input type="file" id="srv-file-4" accept="image/*" />
+            </div>
+            <div class="form-group">
+              <label>Foto 5 (Opcional):</label>
+              <input type="file" id="srv-file-5" accept="image/*" />
+            </div>
+
+            <div class="form-group">
+              <label>Descripción del Trabajo:</label>
+              <textarea id="srv-desc" rows="3" required></textarea>
             </div>
             <div style="display: flex; gap: 0.5rem">
-              <button type="submit" class="submit-btn" id="btn-save-product">
-                Guardar Producto
+              <button type="submit" class="submit-btn" id="btn-save-service">
+                Guardar Servicio
               </button>
               <button
                 type="button"
@@ -581,10 +804,10 @@
             </div>
           </form>
 
-          <hr style="border-color: var(--border-gold); margin: 1.5rem 0" />
+          <hr style="border-color: var(--border-lime); margin: 1.5rem 0" />
 
-          <h3>Inventario Actual</h3>
-          <div class="admin-prod-list" id="admin-product-list"></div>
+          <h3>Servicios Publicados</h3>
+          <div class="admin-list" id="admin-service-list"></div>
         </div>
       </div>
     </div>
@@ -593,40 +816,128 @@
       document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('year').innerText = new Date().getFullYear();
 
-        const SUPABASE_URL = 'https://qrgqzzxgnsuubwyzbqzs.supabase.co';
-        const SUPABASE_ANON_KEY =
-          'sb_publishable_dxxj6bydsC2W9MMCl5F_7Q_AJPRqXl6';
+        const SUPABASE_URL = 'https://aulehttcbxrmejvtepmk.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_VQnAq1TYUwGFxr7_L9Rhug_k6L7Yz6K';
 
         let supabaseClient = null;
         if (typeof supabase !== 'undefined') {
           try {
-            supabaseClient = supabase.createClient(
-              SUPABASE_URL,
-              SUPABASE_ANON_KEY
-            );
+            supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
           } catch (e) {
             console.warn('Supabase no inicializado:', e);
           }
         }
 
         let settings = {
-          title: 'Toxic Store',
-          subtitle: 'Productos de Detailing y Limpieza Automotriz',
-          whatsapp: '5492996099988',
-          instagram: 'https://www.instagram.com/toxicstoreneuquen/',
-          pin: '200358',
+          logo: '',
+          subtitle: 'Lavado Premium • Limpieza de Interior • Tratamientos Cerámicos • PPF • Ploteo Vehicular',
+          address: 'José Rosa 637',
+          whatsapp: '5492993256506',
+          instagram: 'https://www.instagram.com/mons_detail_shop/',
+          pin: '422312',
         };
 
-        let products = [];
+        let categories = [
+          'LAVADO Y INTERIOR',
+          'PULIDOS Y TRATAMIENTOS',
+          'PPF Y PLOTEO',
+          'POLARIZADOS',
+          'PRODUCTOS DE ESTÉTICA'
+        ];
+
+        let services = [];
         let currentCategory = 'Todos';
 
         function updateUI() {
-          document.getElementById('store-title').innerText = settings.title;
-          document.getElementById('footer-title').innerText = settings.title;
-          document.getElementById('doc-title').innerText = settings.title;
-          document.getElementById('store-subtitle').innerText =
-            settings.subtitle;
+          const logoImg = document.getElementById('store-logo-img');
+          const textWrapper = document.getElementById('brand-text-wrapper');
+          
+          if (settings.logo && settings.logo.trim() !== '') {
+            logoImg.src = settings.logo;
+            logoImg.style.display = 'block';
+            textWrapper.style.display = 'none';
+          } else {
+            logoImg.style.display = 'none';
+            textWrapper.style.display = 'block';
+          }
+
+          document.getElementById('store-subtitle').innerText = settings.subtitle;
+          document.getElementById('footer-address').innerText = settings.address;
+          document.getElementById('footer-phone').innerText = '+' + settings.whatsapp;
+
+          const cleanWs = String(settings.whatsapp).replace(/[^0-9]/g, '');
+          const floatWs = document.getElementById('float-whatsapp');
+          if (floatWs) {
+            floatWs.href = `https://wa.me/${cleanWs}?text=` + encodeURIComponent('Hola Daniel! Vengo de la web de MONSDETAIL Shop y quiero consultar por un turno.');
+          }
         }
+
+        function renderCategories() {
+          const filtersContainer = document.getElementById('category-filters');
+          if (filtersContainer) {
+            filtersContainer.innerHTML = `<button class="tag-btn ${currentCategory === 'Todos' ? 'active' : ''}" data-cat="Todos">Todos los Servicios</button>`;
+            categories.forEach(cat => {
+              filtersContainer.innerHTML += `<button class="tag-btn ${currentCategory === cat ? 'active' : ''}" data-cat="${cat}">${cat}</button>`;
+            });
+
+            document.querySelectorAll('.tag-btn').forEach((btn) => {
+              btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.tag-btn').forEach((b) => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentCategory = e.target.getAttribute('data-cat');
+                renderServices();
+              });
+            });
+          }
+
+          const selectSrvCat = document.getElementById('srv-category');
+          if (selectSrvCat) {
+            selectSrvCat.innerHTML = '';
+            categories.forEach(cat => {
+              selectSrvCat.innerHTML += `<option value="${cat}">${cat}</option>`;
+            });
+          }
+
+          const adminCatList = document.getElementById('category-list-admin');
+          if (adminCatList) {
+            adminCatList.innerHTML = '';
+            categories.forEach(cat => {
+              adminCatList.innerHTML += `
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                  <span style="font-size: 0.85rem; color: #fff;">${cat}</span>
+                  <button type="button" onclick="removeCategory('${cat}')" style="background: #e74c3c; color: #fff; border: none; padding: 0.2rem 0.5rem; border-radius: 4px; cursor: pointer; font-size: 0.75rem;"><i class="fa-solid fa-trash"></i></button>
+                </div>
+              `;
+            });
+          }
+        }
+
+        window.addCategory = function() {
+          const input = document.getElementById('new-category-input');
+          const val = input.value.trim().toUpperCase();
+          if (!val) return;
+          if (categories.includes(val)) {
+            alert('Esa categoría ya existe.');
+            return;
+          }
+          categories.push(val);
+          input.value = '';
+          renderCategories();
+          saveSettingsToSupabase();
+        };
+
+        window.removeCategory = function(catName) {
+          if (categories.length <= 1) {
+            alert('Debes tener al menos una categoría.');
+            return;
+          }
+          if (!confirm(`¿Eliminar la categoría "${catName}"?`)) return;
+          categories = categories.filter(c => c !== catName);
+          if (currentCategory === catName) currentCategory = 'Todos';
+          renderCategories();
+          renderServices();
+          saveSettingsToSupabase();
+        };
 
         function openExternalUrl(url) {
           if (!url) return;
@@ -643,50 +954,106 @@
 
         document.getElementById('btn-open-ws').addEventListener('click', () => {
           const cleanWs = String(settings.whatsapp).replace(/[^0-9]/g, '');
-          window.open(`https://wa.me/${cleanWs}`, '_blank');
+          const msg = encodeURIComponent('Hola Daniel! Vengo de la página web de MONSDETAIL Shop y quiero consultar por un turno / presupuesto.');
+          window.open(`https://wa.me/${cleanWs}?text=${msg}`, '_blank');
         });
 
-        function renderProducts() {
-          const container = document.getElementById('products-container');
+        window.moveSlide = function(cardId, direction, totalSlides) {
+          const track = document.getElementById(`track-${cardId}`);
+          if (!track) return;
+          let currentIdx = parseInt(track.getAttribute('data-index') || '0');
+          currentIdx += direction;
+          if (currentIdx < 0) currentIdx = totalSlides - 1;
+          if (currentIdx >= totalSlides) currentIdx = 0;
+          track.setAttribute('data-index', currentIdx);
+          track.style.transform = `translateX(-${currentIdx * 100}%)`;
+
+          const dotsContainer = document.getElementById(`dots-${cardId}`);
+          if (dotsContainer) {
+            Array.from(dotsContainer.children).forEach((dot, idx) => {
+              dot.className = idx === currentIdx ? 'dot active' : 'dot';
+            });
+          }
+        };
+
+        window.goToSlide = function(cardId, slideIdx) {
+          const track = document.getElementById(`track-${cardId}`);
+          if (!track) return;
+          track.setAttribute('data-index', slideIdx);
+          track.style.transform = `translateX(-${slideIdx * 100}%)`;
+
+          const dotsContainer = document.getElementById(`dots-${cardId}`);
+          if (dotsContainer) {
+            Array.from(dotsContainer.children).forEach((dot, idx) => {
+              dot.className = idx === slideIdx ? 'dot active' : 'dot';
+            });
+          }
+        };
+
+        function renderServices() {
+          const container = document.getElementById('services-container');
           const searchInput = document.getElementById('search-input');
           const search = searchInput ? searchInput.value.toLowerCase() : '';
 
           container.innerHTML = '';
 
-          const filtered = products.filter((p) => {
-            const matchesCat =
-              currentCategory === 'Todos' || p.category === currentCategory;
+          const filtered = services.filter((s) => {
+            const matchesCat = currentCategory === 'Todos' || s.category === currentCategory;
             const matchesSearch =
-              p.name.toLowerCase().includes(search) ||
-              (p.description && p.description.toLowerCase().includes(search));
+              s.name.toLowerCase().includes(search) ||
+              (s.description && s.description.toLowerCase().includes(search));
             return matchesCat && matchesSearch;
           });
 
           if (filtered.length === 0) {
-            container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 2rem;">No hay productos para mostrar en esta categoría.</p>`;
+            container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 2rem;">No se encontraron servicios en esta categoría.</p>`;
           } else {
             const cleanWs = String(settings.whatsapp).replace(/[^0-9]/g, '');
 
-            filtered.forEach((p) => {
+            filtered.forEach((s) => {
               const message = encodeURIComponent(
-                `Hola! Quiero consultar por el producto: ${p.name} ($${p.price})`
+                `Hola Daniel! Vi en la web de MONSDETAIL Shop el servicio de *${s.name}* y me gustaría pedir presupuesto para mi vehículo.`
               );
               const wsLink = `https://wa.me/${cleanWs}?text=${message}`;
 
+              let imgList = [];
+              if (Array.isArray(s.images) && s.images.length > 0) {
+                imgList = s.images.filter(img => img && img.trim() !== '');
+              } else if (s.image) {
+                imgList = [s.image];
+              }
+              if (imgList.length === 0) imgList = ['https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=800&q=80'];
+
+              let slidesHTML = '';
+              let dotsHTML = '';
+              imgList.forEach((imgUrl, idx) => {
+                slidesHTML += `<img src="${imgUrl}" class="carousel-slide" alt="${s.name} foto ${idx + 1}">`;
+                dotsHTML += `<span class="dot ${idx === 0 ? 'active' : ''}" onclick="goToSlide('${s.id}', ${idx})"></span>`;
+              });
+
+              let arrowsHTML = '';
+              if (imgList.length > 1) {
+                arrowsHTML = `
+                  <button class="carousel-btn carousel-prev" onclick="moveSlide('${s.id}', -1, ${imgList.length})"><i class="fa-solid fa-chevron-left"></i></button>
+                  <button class="carousel-btn carousel-next" onclick="moveSlide('${s.id}', 1, ${imgList.length})"><i class="fa-solid fa-chevron-right"></i></button>
+                  <div class="carousel-dots" id="dots-${s.id}">${dotsHTML}</div>
+                `;
+              }
+
               container.innerHTML += `
-                <div class="product-card">
-                  <img src="${p.image}" class="product-img" alt="${p.name}">
-                  <div class="product-info">
-                    <div style="font-size: 0.75rem; color: var(--primary-gold); margin-bottom: 0.3rem; text-transform: uppercase;">${
-                      p.category
-                    }</div>
-                    <div class="product-title">${p.name}</div>
-                    <div class="product-desc">${p.description || ''}</div>
-                    <div class="product-price">$${Number(
-                      p.price
-                    ).toLocaleString('es-AR')}</div>
-                    <button onclick="window.open('${wsLink}', '_blank')" class="buy-btn">
-                      <i class="fa-brands fa-whatsapp"></i> Consultar
+                <div class="service-card">
+                  <div class="carousel-container">
+                    <div class="carousel-track" id="track-${s.id}" data-index="0">
+                      ${slidesHTML}
+                    </div>
+                    ${arrowsHTML}
+                  </div>
+                  <div class="service-info">
+                    <div class="service-category">${s.category}</div>
+                    <div class="service-title">${s.name}</div>
+                    <div class="service-desc">${s.description || ''}</div>
+                    <button onclick="window.open('${wsLink}', '_blank')" class="quote-btn">
+                      <i class="fa-brands fa-whatsapp"></i> Pedir Presupuesto
                     </button>
                   </div>
                 </div>
@@ -694,118 +1061,102 @@
             });
           }
 
-          renderAdminProductList();
+          renderAdminServiceList();
         }
 
-        function renderAdminProductList() {
-          const adminList = document.getElementById('admin-product-list');
+        function renderAdminServiceList() {
+          const adminList = document.getElementById('admin-service-list');
           if (!adminList) return;
 
           adminList.innerHTML = '';
-          if (products.length === 0) {
-            adminList.innerHTML = `<p style="color: var(--text-muted); text-align: center; padding: 0.5rem;">Sin productos.</p>`;
+          if (services.length === 0) {
+            adminList.innerHTML = `<p style="color: var(--text-muted); text-align: center; padding: 0.5rem;">Sin servicios publicados.</p>`;
             return;
           }
 
-          products.forEach((p) => {
+          services.forEach((s) => {
+            let firstImg = (Array.isArray(s.images) && s.images.length > 0) ? s.images[0] : (s.image || '');
+            let countImgs = (Array.isArray(s.images)) ? s.images.length : 1;
+
             adminList.innerHTML += `
-              <div class="admin-prod-item">
-                <div class="admin-prod-info">
-                  <img src="${p.image}" class="admin-prod-img" alt="${p.name}">
+              <div class="admin-item">
+                <div class="admin-item-info">
+                  <img src="${firstImg}" class="admin-item-img" alt="${s.name}">
                   <div>
-                    <strong style="color: #fff; font-size: 0.85rem;">${
-                      p.name
-                    }</strong><br>
-                    <small style="color: var(--primary-gold);">${
-                      p.category
-                    } - $${Number(p.price).toLocaleString('es-AR')}</small>
+                    <strong style="color: #fff; font-size: 0.85rem;">${s.name}</strong><br>
+                    <small style="color: var(--primary-lime);">${s.category} (${countImgs} foto/s)</small>
                   </div>
                 </div>
                 <div class="admin-actions">
-                  <button class="btn-edit-sm" onclick="editProduct('${
-                    p.id
-                  }')"><i class="fa-solid fa-pen"></i></button>
-                  <button class="btn-delete-sm" onclick="deleteProduct('${
-                    p.id
-                  }')"><i class="fa-solid fa-trash"></i></button>
+                  <button class="btn-edit-sm" onclick="editService('${s.id}')"><i class="fa-solid fa-pen"></i></button>
+                  <button class="btn-delete-sm" onclick="deleteService('${s.id}')"><i class="fa-solid fa-trash"></i></button>
                 </div>
               </div>
             `;
           });
         }
 
-        window.editProduct = function (id) {
-          const prod = products.find((p) => String(p.id) === String(id));
-          if (!prod) return;
+        window.editService = function (id) {
+          const srv = services.find((s) => String(s.id) === String(id));
+          if (!srv) return;
 
-          document.getElementById('prod-id-edit').value = prod.id;
-          document.getElementById('prod-name').value = prod.name;
-          document.getElementById('prod-category').value = prod.category;
-          document.getElementById('prod-price').value = prod.price;
-          document.getElementById('prod-img').value = prod.image;
-          document.getElementById('prod-desc').value = prod.description || '';
+          document.getElementById('srv-id-edit').value = srv.id;
+          document.getElementById('srv-name').value = srv.name;
+          document.getElementById('srv-category').value = srv.category;
+          document.getElementById('srv-desc').value = srv.description || '';
 
-          document.getElementById('form-product-title').innerText =
-            'Modificar Producto';
-          document.getElementById('btn-save-product').innerText =
-            'Actualizar Producto';
+          for (let i = 1; i <= 5; i++) {
+            document.getElementById(`srv-file-${i}`).value = '';
+          }
+
+          document.getElementById('form-service-title').innerText = 'Modificar Servicio (Sube nuevas fotos si deseas cambiarlas)';
+          document.getElementById('btn-save-service').innerText = 'Actualizar Servicio';
           document.getElementById('btn-cancel-edit').style.display = 'block';
         };
 
-        window.deleteProduct = async function (id) {
-          if (!confirm('¿Estás seguro de eliminar este producto?')) return;
+        window.deleteService = async function (id) {
+          if (!confirm('¿Estás seguro de eliminar este servicio?')) return;
 
           if (supabaseClient) {
-            const { error } = await supabaseClient
-              .from('products')
-              .delete()
-              .eq('id', id);
-
+            const { error } = await supabaseClient.from('services').delete().eq('id', id);
             if (error) {
               alert('Error al eliminar en Supabase: ' + error.message);
               return;
             }
           }
 
-          products = products.filter((p) => String(p.id) !== String(id));
-          alert('Producto eliminado correctamente.');
-          syncSupabase();
+          services = services.filter((s) => String(s.id) !== String(id));
+          alert('Servicio eliminado.');
+          renderServices();
         };
 
-        document
-          .getElementById('btn-cancel-edit')
-          .addEventListener('click', () => {
-            resetForm();
-          });
+        document.getElementById('btn-cancel-edit').addEventListener('click', () => {
+          resetForm();
+        });
 
         function resetForm() {
-          document.getElementById('prod-id-edit').value = '';
-          document.getElementById('prod-name').value = '';
-          document.getElementById('prod-price').value = '';
-          document.getElementById('prod-img').value = '';
-          document.getElementById('prod-desc').value = '';
+          document.getElementById('srv-id-edit').value = '';
+          document.getElementById('srv-name').value = '';
+          document.getElementById('srv-desc').value = '';
+          for (let i = 1; i <= 5; i++) {
+            document.getElementById(`srv-file-${i}`).value = '';
+          }
 
-          document.getElementById('form-product-title').innerText =
-            'Agregar / Editar Producto';
-          document.getElementById('btn-save-product').innerText =
-            'Guardar Producto';
+          document.getElementById('form-service-title').innerText = 'Agregar / Editar Servicio (Subir hasta 5 Fotos)';
+          document.getElementById('btn-save-service').innerText = 'Guardar Servicio';
           document.getElementById('btn-cancel-edit').style.display = 'none';
         }
 
-        document
-          .getElementById('btn-admin-modal')
-          .addEventListener('click', () => {
-            document.getElementById('modal-admin').classList.add('active');
-            document.getElementById('admin-pin').focus();
-          });
+        document.getElementById('btn-admin-modal').addEventListener('click', () => {
+          document.getElementById('modal-admin').classList.add('active');
+          document.getElementById('admin-pin').focus();
+        });
 
-        document
-          .getElementById('close-admin-modal')
-          .addEventListener('click', () => {
-            document.getElementById('modal-admin').classList.remove('active');
-            document.getElementById('admin-pin').value = '';
-            resetForm();
-          });
+        document.getElementById('close-admin-modal').addEventListener('click', () => {
+          document.getElementById('modal-admin').classList.remove('active');
+          document.getElementById('admin-pin').value = '';
+          resetForm();
+        });
 
         window.verifyPin = function () {
           const pinInput = document.getElementById('admin-pin').value;
@@ -813,108 +1164,163 @@
             document.getElementById('admin-login-sec').style.display = 'none';
             document.getElementById('admin-panel-sec').style.display = 'block';
 
-            document.getElementById('input-store-title').value = settings.title;
-            document.getElementById('input-store-subtitle').value =
-              settings.subtitle;
+            document.getElementById('input-logo-file').value = '';
+            document.getElementById('input-store-logo').value = settings.logo || '';
+            document.getElementById('input-store-subtitle').value = settings.subtitle;
+            document.getElementById('input-store-address').value = settings.address;
             document.getElementById('input-store-ws').value = settings.whatsapp;
-            document.getElementById('input-store-ig').value =
-              settings.instagram;
+            document.getElementById('input-store-ig').value = settings.instagram;
+            renderCategories();
           } else {
             alert('PIN incorrecto.');
           }
         };
 
-        document
-          .getElementById('btn-save-settings')
-          .addEventListener('click', async () => {
-            const newTitle = document.getElementById('input-store-title').value;
-            const newSubtitle = document.getElementById(
-              'input-store-subtitle'
-            ).value;
-            const newWs = document.getElementById('input-store-ws').value;
-            const newIg = document.getElementById('input-store-ig').value;
+        async function saveSettingsToSupabase() {
+          if (supabaseClient) {
+            await supabaseClient.from('store_settings').upsert({
+              id: 'default',
+              logo: settings.logo,
+              subtitle: settings.subtitle,
+              address: settings.address,
+              whatsapp: settings.whatsapp,
+              instagram: settings.instagram,
+              pin: settings.pin,
+              categories: categories,
+              updated_at: new Date(),
+            });
+          }
+        }
 
-            if (supabaseClient) {
-              await supabaseClient.from('store_settings').upsert({
-                id: 'default',
-                title: newTitle,
-                subtitle: newSubtitle,
-                whatsapp: newWs,
-                instagram: newIg,
-                pin: settings.pin,
-                updated_at: new Date(),
-              });
+        document.getElementById('btn-save-settings').addEventListener('click', async () => {
+          const logoFileInput = document.getElementById('input-logo-file');
+          let newLogoUrl = document.getElementById('input-store-logo').value.trim();
+
+          // Si seleccionó un archivo nuevo para el logo, subirlo a Supabase Storage
+          if (logoFileInput && logoFileInput.files.length > 0 && supabaseClient) {
+            const file = logoFileInput.files[0];
+            const fileExt = file.name.split('.').pop();
+            const fileName = `logo_${Date.now()}.${fileExt}`;
+            const filePath = `logos/${fileName}`;
+
+            const { error: uploadError } = await supabaseClient.storage
+              .from('servicios-fotos')
+              .upload(filePath, file);
+
+            if (uploadError) {
+              alert('Error al subir el logo: ' + uploadError.message);
+              return;
             }
 
-            settings.title = newTitle;
-            settings.subtitle = newSubtitle;
-            settings.whatsapp = newWs;
-            settings.instagram = newIg;
+            const { data: publicURLData } = supabaseClient.storage
+              .from('servicios-fotos')
+              .getPublicUrl(filePath);
 
-            alert('¡Ajustes guardados correctamente!');
-            updateUI();
-            document.getElementById('modal-admin').classList.remove('active');
-            syncSupabase();
-          });
+            if (publicURLData && publicURLData.publicUrl) {
+              newLogoUrl = publicURLData.publicUrl;
+            }
+          }
 
-        window.saveProduct = async function () {
-          const editId = document.getElementById('prod-id-edit').value;
-          const name = document.getElementById('prod-name').value;
-          const category = document.getElementById('prod-category').value;
-          const price = Number(document.getElementById('prod-price').value);
-          const image = document.getElementById('prod-img').value;
-          const description = document.getElementById('prod-desc').value;
+          settings.logo = newLogoUrl;
+          settings.subtitle = document.getElementById('input-store-subtitle').value;
+          settings.address = document.getElementById('input-store-address').value;
+          settings.whatsapp = document.getElementById('input-store-ws').value;
+          settings.instagram = document.getElementById('input-store-ig').value;
 
-          if (!name || !price || !image) {
-            alert('Completa al menos el Nombre, Precio e Imagen.');
+          await saveSettingsToSupabase();
+
+          alert('¡Datos y logo actualizados correctamente!');
+          updateUI();
+          document.getElementById('modal-admin').classList.remove('active');
+        });
+
+        window.saveService = async function () {
+          const editId = document.getElementById('srv-id-edit').value;
+          const name = document.getElementById('srv-name').value;
+          const category = document.getElementById('srv-category').value;
+          const description = document.getElementById('srv-desc').value;
+
+          if (!name || !description) {
+            alert('Completa el nombre y la descripción.');
+            return;
+          }
+
+          let finalImages = [];
+          if (editId) {
+            const existingSrv = services.find(s => String(s.id) === String(editId));
+            if (existingSrv && Array.isArray(existingSrv.images)) {
+              finalImages = [...existingSrv.images];
+            }
+          }
+
+          for (let i = 1; i <= 5; i++) {
+            const fileInput = document.getElementById(`srv-file-${i}`);
+            if (fileInput && fileInput.files.length > 0) {
+              const file = fileInput.files[0];
+              const fileExt = file.name.split('.').pop();
+              const fileName = `${Date.now()}_${i}.${fileExt}`;
+              const filePath = `servicios/${fileName}`;
+
+              if (supabaseClient) {
+                const { error: uploadError } = await supabaseClient.storage
+                  .from('servicios-fotos')
+                  .upload(filePath, file);
+
+                if (uploadError) {
+                  alert('Error al subir la imagen ' + i + ': ' + uploadError.message);
+                  return;
+                }
+
+                const { data: publicURLData } = supabaseClient.storage
+                  .from('servicios-fotos')
+                  .getPublicUrl(filePath);
+
+                if (publicURLData && publicURLData.publicUrl) {
+                  if (editId && finalImages[i - 1]) {
+                    finalImages[i - 1] = publicURLData.publicUrl;
+                  } else {
+                    finalImages.push(publicURLData.publicUrl);
+                  }
+                }
+              }
+            }
+          }
+
+          if (finalImages.length === 0) {
+            alert('Debes seleccionar al menos una foto.');
             return;
           }
 
           if (editId) {
             if (supabaseClient) {
               const { error } = await supabaseClient
-                .from('products')
-                .update({ name, category, price, image, description })
+                .from('services')
+                .update({ name, category, images: finalImages, description })
                 .eq('id', editId);
-
               if (error) {
                 alert('Error al actualizar: ' + error.message);
                 return;
               }
             }
-            alert('¡Producto actualizado exitosamente!');
+            alert('¡Servicio actualizado!');
           } else {
             if (supabaseClient) {
               const { error } = await supabaseClient
-                .from('products')
-                .insert([{ name, category, price, image, description }]);
-
+                .from('services')
+                .insert([{ name, category, images: finalImages, description }]);
               if (error) {
                 alert('Error al guardar: ' + error.message);
                 return;
               }
             }
-            alert('¡Producto guardado exitosamente!');
+            alert('¡Servicio agregado!');
           }
 
           resetForm();
           syncSupabase();
         };
 
-        document
-          .getElementById('search-input')
-          .addEventListener('input', renderProducts);
-
-        document.querySelectorAll('.tag-btn').forEach((btn) => {
-          btn.addEventListener('click', (e) => {
-            document
-              .querySelectorAll('.tag-btn')
-              .forEach((b) => b.classList.remove('active'));
-            e.target.classList.add('active');
-            currentCategory = e.target.getAttribute('data-cat');
-            renderProducts();
-          });
-        });
+        document.getElementById('search-input').addEventListener('input', renderServices);
 
         async function syncSupabase() {
           if (supabaseClient) {
@@ -925,20 +1331,29 @@
                 .eq('id', 'default')
                 .single();
 
-              if (sData) settings = sData;
+              if (sData) {
+                settings = { ...settings, ...sData };
+                if (sData.categories && Array.isArray(sData.categories)) {
+                  categories = sData.categories;
+                }
+              }
               updateUI();
+              renderCategories();
 
-              const { data: pData } = await supabaseClient
-                .from('products')
+              const { data: srvData } = await supabaseClient
+                .from('services')
                 .select('*')
                 .order('id', { ascending: true });
 
-              if (pData) products = pData;
+              if (srvData && srvData.length > 0) {
+                services = srvData;
+              }
             } catch (e) {
               console.warn('Error al sincronizar Supabase:', e);
             }
           }
-          renderProducts();
+          renderCategories();
+          renderServices();
         }
 
         updateUI();
