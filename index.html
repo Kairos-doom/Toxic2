@@ -116,7 +116,9 @@
         text-transform: uppercase;
       }
 
+      /* Oculto por defecto; se activa con Ctrl + Shift + Z */
       .admin-btn {
+        display: none;
         position: absolute;
         top: 1rem;
         right: 1rem;
@@ -601,7 +603,7 @@
   </head>
   <body>
     <header>
-      <button class="admin-btn" id="btn-admin-modal">
+      <button class="admin-btn" id="btn-admin-modal" style="display: none;">
         <i class="fa-solid fa-gear"></i> Panel Admin
       </button>
 
@@ -847,6 +849,42 @@
 
         let services = [];
         let currentCategory = 'Todos';
+
+        // --- ACTIVACIÓN DEL PANEL ADMIN CON CTRL + SHIFT + Z ---
+        const adminBtn = document.getElementById('btn-admin-modal');
+        const modalAdmin = document.getElementById('modal-admin');
+        const adminPinInput = document.getElementById('admin-pin');
+
+        if (adminBtn) {
+          adminBtn.style.display = 'none';
+        }
+
+        function openAdminModal() {
+          if (!modalAdmin) return;
+          modalAdmin.classList.add('active');
+          if (adminPinInput) {
+            setTimeout(() => adminPinInput.focus(), 50);
+          }
+        }
+
+        function closeAdminModal() {
+          if (!modalAdmin) return;
+          modalAdmin.classList.remove('active');
+          if (adminPinInput) adminPinInput.value = '';
+          resetForm();
+        }
+
+        document.addEventListener('keydown', (event) => {
+          const tag = event.target && event.target.tagName ? event.target.tagName.toLowerCase() : '';
+          const isTyping = tag === 'input' || tag === 'textarea' || tag === 'select' || (event.target && event.target.isContentEditable);
+          if (isTyping) return;
+
+          if (event.ctrlKey && event.shiftKey && !event.altKey && event.code === 'KeyZ') {
+            event.preventDefault();
+            openAdminModal();
+          }
+        });
+        // --------------------------------------------------------
 
         function updateUI() {
           const logoImg = document.getElementById('store-logo-img');
@@ -1147,16 +1185,11 @@
           document.getElementById('btn-cancel-edit').style.display = 'none';
         }
 
-        document.getElementById('btn-admin-modal').addEventListener('click', () => {
-          document.getElementById('modal-admin').classList.add('active');
-          document.getElementById('admin-pin').focus();
-        });
+        if (adminBtn) {
+          adminBtn.addEventListener('click', openAdminModal);
+        }
 
-        document.getElementById('close-admin-modal').addEventListener('click', () => {
-          document.getElementById('modal-admin').classList.remove('active');
-          document.getElementById('admin-pin').value = '';
-          resetForm();
-        });
+        document.getElementById('close-admin-modal').addEventListener('click', closeAdminModal);
 
         window.verifyPin = function () {
           const pinInput = document.getElementById('admin-pin').value;
@@ -1196,7 +1229,6 @@
           const logoFileInput = document.getElementById('input-logo-file');
           let newLogoUrl = document.getElementById('input-store-logo').value.trim();
 
-          // Si seleccionó un archivo nuevo para el logo, subirlo a Supabase Storage
           if (logoFileInput && logoFileInput.files.length > 0 && supabaseClient) {
             const file = logoFileInput.files[0];
             const fileExt = file.name.split('.').pop();
@@ -1231,7 +1263,7 @@
 
           alert('¡Datos y logo actualizados correctamente!');
           updateUI();
-          document.getElementById('modal-admin').classList.remove('active');
+          closeAdminModal();
         });
 
         window.saveService = async function () {
