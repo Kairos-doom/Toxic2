@@ -118,7 +118,7 @@
 
       /* Oculto por defecto; se activa con Ctrl + Shift + Z */
       .admin-btn {
-        display: none;
+        display: none !important;
         position: absolute;
         top: 1rem;
         right: 1rem;
@@ -131,6 +131,12 @@
         transition: all 0.3s ease;
         z-index: 10;
         font-size: 0.85rem;
+      }
+
+      .admin-btn.visible-shortcut {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 0.4rem;
       }
 
       .admin-btn:hover {
@@ -855,8 +861,11 @@
         const modalAdmin = document.getElementById('modal-admin');
         const adminPinInput = document.getElementById('admin-pin');
 
-        if (adminBtn) {
-          adminBtn.style.display = 'none';
+        function hideAdminButton() {
+          if (adminBtn) {
+            adminBtn.classList.remove('visible-shortcut');
+            adminBtn.style.setProperty('display', 'none', 'important');
+          }
         }
 
         function openAdminModal() {
@@ -874,16 +883,31 @@
           resetForm();
         }
 
-        document.addEventListener('keydown', (event) => {
-          const tag = event.target && event.target.tagName ? event.target.tagName.toLowerCase() : '';
-          const isTyping = tag === 'input' || tag === 'textarea' || tag === 'select' || (event.target && event.target.isContentEditable);
-          if (isTyping) return;
+        hideAdminButton();
 
-          if (event.ctrlKey && event.shiftKey && !event.altKey && event.code === 'KeyZ') {
-            event.preventDefault();
-            openAdminModal();
-          }
-        });
+        window.addEventListener(
+          'keydown',
+          (event) => {
+            const tag = event.target && event.target.tagName ? event.target.tagName.toLowerCase() : '';
+            const isTyping =
+              tag === 'input' ||
+              tag === 'textarea' ||
+              tag === 'select' ||
+              Boolean(event.target && event.target.isContentEditable);
+            if (isTyping) return;
+
+            const isZ =
+              event.code === 'KeyZ' ||
+              (typeof event.key === 'string' && event.key.toLowerCase() === 'z');
+
+            if (event.ctrlKey && event.shiftKey && !event.altKey && isZ) {
+              event.preventDefault();
+              event.stopPropagation();
+              openAdminModal();
+            }
+          },
+          true
+        );
         // --------------------------------------------------------
 
         function updateUI() {
